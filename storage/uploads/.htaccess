@@ -1,0 +1,7 @@
+# Prevent script execution inside upload folder
+# Files are securely served through PHP file viewer endpoint
+<FilesMatch "\.(php|phtml|php3|php4|php5|phps|phar|cgi|pl|exe|sh)$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+Options -Indexes -ExecCGI

@@ -1,0 +1,14 @@
+# Maven build target directory
+target/
+
+# Sensitive / local override database configs
+src/main/resources/db.local.properties
+*.local.properties
+
+# IDE files
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+*.log

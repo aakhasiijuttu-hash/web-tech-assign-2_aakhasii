@@ -1,0 +1,347 @@
+/* ==========================================================================
+   Student Admission Portal - Question 1 Stylesheet
+   Theme: Light background with modern Blue & Purple gradient accents
+   ========================================================================== */
+
+/* Root CSS Variables for Design Tokens */
+:root {
+    --primary-blue: #2563eb;
+    --primary-purple: #7c3aed;
+    --primary-gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    --primary-hover: linear-gradient(135deg, #1d4ed8 0%, #6d28d9 100%);
+    
+    --bg-light: #f4f6fb;
+    --card-bg: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #cbd5e1;
+    --border-focus: #4f46e5;
+    
+    --error-color: #dc2626;
+    --error-bg: #fef2f2;
+    --error-border: #f87171;
+    
+    --success-color: #15803d;
+    --success-bg: #f0fdf4;
+    --success-border: #86efac;
+    
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    
+    --shadow-card: 0 10px 25px -5px rgba(37, 99, 235, 0.08), 0 8px 10px -6px rgba(124, 58, 237, 0.06);
+    --shadow-btn: 0 4px 14px 0 rgba(79, 70, 229, 0.35);
+    --transition: all 0.25s ease-in-out;
+}
+
+/* CSS Reset and Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-light);
+    background-image: radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.07) 0px, transparent 50%),
+                      radial-gradient(at 100% 100%, rgba(124, 58, 237, 0.08) 0px, transparent 50%);
+    background-attachment: fixed;
+    color: var(--text-main);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+}
+
+/* Main Layout Centering */
+.page-container {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+/* Centered Form Card */
+.card-container {
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    border: 1px solid rgba(203, 213, 225, 0.6);
+    padding: 36px 32px;
+    transition: var(--transition);
+}
+
+/* Card Header Section */
+.card-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.badge {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--primary-purple);
+    background: rgba(124, 58, 237, 0.1);
+    padding: 4px 12px;
+    border-radius: 9999px;
+    margin-bottom: 10px;
+}
+
+.card-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #0f172a;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 6px;
+}
+
+.card-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+/* Success Banner */
+.success-banner {
+    background-color: var(--success-bg);
+    border: 1px solid var(--success-border);
+    color: var(--success-color);
+    padding: 14px 18px;
+    border-radius: var(--radius-md);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: fadeInSlide 0.35s ease;
+}
+
+.success-icon {
+    font-size: 1.25rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--success-color);
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.success-content h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.success-content p {
+    font-size: 0.88rem;
+    margin-top: 2px;
+}
+
+/* Form Controls and Layout */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+    position: relative;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+}
+
+.form-row .col {
+    flex: 1;
+}
+
+.form-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 6px;
+}
+
+.required-star {
+    color: var(--error-color);
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    font-size: 0.95rem;
+    font-family: inherit;
+    padding: 10px 14px;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-main);
+    background-color: #ffffff;
+    transition: var(--transition);
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: #94a3b8;
+}
+
+/* Focus States */
+.form-control:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+/* Select Field */
+select.form-control {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23475569%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2F%polyline%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 14px;
+    padding-right: 36px;
+    cursor: pointer;
+}
+
+/* File Input Styling */
+.file-input {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.file-input::file-selector-button {
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--primary-blue);
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    margin-right: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.file-input::file-selector-button:hover {
+    background: rgba(37, 99, 235, 0.2);
+}
+
+/* Helper and Error Messages */
+.helper-text {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.error-text {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--error-color);
+    margin-top: 5px;
+    min-height: 18px;
+    display: block;
+}
+
+/* Field Validation Error State */
+.form-control.is-invalid {
+    border-color: var(--error-color);
+    background-color: var(--error-bg);
+}
+
+.form-control.is-invalid:focus {
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+}
+
+/* Field Validation Success State */
+.form-control.is-valid {
+    border-color: #16a34a;
+}
+
+/* Action Buttons */
+.btn-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.btn {
+    flex: 1;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    text-align: center;
+}
+
+/* Primary Register Button with Blue-Purple Gradient */
+.btn-primary {
+    background: var(--primary-gradient);
+    color: #ffffff;
+    box-shadow: var(--shadow-btn);
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px 0 rgba(79, 70, 229, 0.45);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Secondary Reset Button */
+.btn-secondary {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+}
+
+.btn-secondary:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+/* Micro Animations */
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles for Mobile */
+@media (max-width: 600px) {
+    .card-container {
+        padding: 24px 18px;
+    }
+
+    .card-title {
+        font-size: 1.55rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .btn-group {
+        flex-direction: column;
+    }
+}
